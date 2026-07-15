@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winch de voilier — Paul Amouriaux</title>
+  <meta name="description" content="Conception complète d'un winch de voilier : train d'engrenages à deux vitesses, mises en plan et notice de calcul de dimensionnement des liaisons.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a class="nav-brand" href="../index.html">Paul Amouriaux <span>· GMP</span></a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="../index.html#projets">Projets</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Accueil</a> / <a href="../index.html#projets">Projets</a> / Winch de voilier</p>
+    <span class="sae">Conception mécanique — CAO &amp; dimensionnement</span>
+    <h1>Conception d'un winch de voilier</h1>
+    <div class="skill-tags">
+      <span class="tag">CAO Catia</span>
+      <span class="tag">Engrenages</span>
+      <span class="tag">Mise en plan A3</span>
+      <span class="tag">Notice de calcul</span>
+    </div>
+  </div>
+</section>
+
+<div class="container section">
+  <article class="article">
+    <h2>Contexte et objectif</h2>
+    <p>
+      Le winch est le treuil qui permet à un équipier de voilier de reprendre l'écoute d'une voile
+      malgré un effort de <strong>4&nbsp;500&nbsp;N</strong>. L'objectif de ce projet était de
+      concevoir intégralement le mécanisme sous Catia&nbsp;: un <strong>train d'engrenages à deux
+      vitesses</strong> logé dans le tambour, avec des <strong>cliquets anti-retour</strong> qui
+      sélectionnent automatiquement le rapport selon le sens de rotation de la manivelle, puis de
+      valider le dimensionnement de chaque liaison par le calcul.
+    </p>
+
+    <h2>Conception CAO</h2>
+    <p>
+      L'assemblage complet compte 23 références&nbsp;: bâti, axe central claveté, six pignons,
+      cliquets, roulements, coussinets, flasque et bouchon. La maquette numérique intègre les
+      <strong>connexions mécaniques</strong> (pivots, encastrements) pour vérifier les mobilités,
+      et l'ensemble est documenté par une <strong>mise en plan A3</strong> avec coupes, sections,
+      nomenclature complète — doublée d'un plan à main levée réalisé en amont.
+    </p>
+
+    <div class="gallery">
+      <figure>
+        <img src="../assets/img/winch-arbre.png" alt="Arbre de construction Catia de l'assemblage du winch" loading="lazy">
+        <figcaption>L'arbre de construction de l'assemblage sous Catia.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/winch-mep.jpg" alt="Mise en plan A3 du winch avec coupes, sections et nomenclature" loading="lazy">
+        <figcaption>Mise en plan A3&nbsp;: coupes A-A et B-B, section C-C, nomenclature de 23 éléments.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/winch-plan-main.jpg" alt="Plan du winch dessiné à main levée avec coupes et cercles primitifs" loading="lazy">
+        <figcaption>Le plan à main levée&nbsp;: coupe, section et cercles primitifs du train d'engrenages.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Notice de calcul&nbsp;: vérification des liaisons</h2>
+    <p>
+      Chaque liaison critique a été vérifiée selon une méthodologie systématique
+      (problématique → hypothèses/données → calcul → conclusion)&nbsp;:
+    </p>
+    <ul>
+      <li><strong>Fixation au bâti</strong>&nbsp;: loi de Coulomb avec coefficient de sécurité de 2 → 2,4&nbsp;kN par vis, très en deçà de la capacité des vis M15 retenues.</li>
+      <li><strong>Roulements à billes</strong> SKF W61810-2RS1&nbsp;: durée de vie L10h de 9&nbsp;167&nbsp;h, soit 10 ans d'usage plaisance avec un coefficient de sécurité de 3.</li>
+      <li><strong>Clavettes</strong>&nbsp;: vérification de la pression de matage sur les trois clavettes — l'une (axe central – pignon 1, 357&nbsp;MPa) doit être redimensionnée, une autre est à la limite.</li>
+      <li><strong>Cliquets</strong>&nbsp;: pression de contact validée pour l'un (26&nbsp;MPa), matériau à revoir pour l'autre (47&nbsp;MPa, proche de la limite du bronze).</li>
+      <li><strong>Paliers lisses</strong>&nbsp;: pression de 4&nbsp;MPa, largement admissible.</li>
+    </ul>
+
+    <div class="gallery">
+      <figure>
+        <img src="../assets/img/winch-notice.png" alt="Page de garde de la notice de calcul avec vue isométrique du winch" loading="lazy">
+        <figcaption>La notice de calcul et sa vue isométrique du winch assemblé.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/winch-calcul-roulements.png" alt="Calcul de durée de vie des roulements à billes du winch" loading="lazy">
+        <figcaption>Vérification des roulements&nbsp;: durée de vie L10h et conclusion d'usage.</figcaption>
+      </figure>
+    </div>
+
+    <div class="encart">
+      <strong>Esprit critique&nbsp;:</strong> la notice ne se contente pas de valider — elle
+      identifie les éléments surdimensionnés (vis M15) comme sous-dimensionnés (clavette du pignon
+      d'entrée) et propose des corrections&nbsp;: redimensionnement ou changement de matériau.
+    </div>
+
+    <h2>Ce que ce projet m'a apporté</h2>
+    <ul>
+      <li>Concevoir un mécanisme complet à train d'engrenages, du schéma au modèle 3D détaillé.</li>
+      <li>Produire des mises en plan normalisées complexes (coupes multiples, nomenclature).</li>
+      <li>Dimensionner des liaisons réelles&nbsp;: matage, durée de vie de roulements, assemblages vissés.</li>
+      <li>Porter un regard critique sur ma propre conception et proposer des corrections chiffrées.</li>
+    </ul>
+
+    <nav class="project-nav">
+      <a href="prehenseur-robot.html">← Préhenseur robot</a>
+      <a href="../index.html#projets">Tous les projets →</a>
+    </nav>
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2026 Paul Amouriaux — Portfolio</span>
+    <span>BUT Génie Mécanique et Productique · IUT de Nantes</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

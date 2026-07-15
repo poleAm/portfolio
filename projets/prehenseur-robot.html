@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Préhenseur pour robot industriel — Paul Amouriaux</title>
+  <meta name="description" content="SAE 2.22 : robotisation d'une opération de production — conception d'un préhenseur de briques et simulation de la cellule robotisée sur RobotStudio.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav container">
+    <a class="nav-brand" href="../index.html">Paul Amouriaux <span>· GMP</span></a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="../index.html#projets">Projets</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">Accueil</a> / <a href="../index.html#projets">Projets</a> / Préhenseur robot</p>
+    <span class="sae">SAE 2.22 — Robotisation d'une opération de production</span>
+    <h1>Préhenseur de briques pour robot industriel</h1>
+    <div class="skill-tags">
+      <span class="tag">Analyse fonctionnelle</span>
+      <span class="tag">3DEXPERIENCE</span>
+      <span class="tag">RobotStudio</span>
+      <span class="tag">Étude économique</span>
+    </div>
+  </div>
+</section>
+
+<div class="container section">
+  <article class="article">
+    <h2>Contexte et objectif</h2>
+    <p>
+      Pour réduire les troubles musculosquelettiques sur les chantiers, l'entreprise fictive
+      BriqBotics souhaite robotiser le déchargement de briques de 18&nbsp;kg pour monter des murs.
+      Ma mission couvrait toute la chaîne&nbsp;: <strong>concevoir le préhenseur</strong> monté en
+      bout de bras du robot, puis <strong>simuler la cellule robotisée complète</strong> et juger
+      de la pertinence technico-économique de la solution.
+    </p>
+    <div class="encart">
+      <strong>Contraintes principales&nbsp;:</strong> masse de l'ensemble pince inférieure à
+      12&nbsp;kg, temps de cycle optimisé, maximum d'éléments standards et procédés de fabrication
+      simples, adaptation à un environnement de chantier poussiéreux.
+    </div>
+
+    <h2>Conception du préhenseur</h2>
+    <p>
+      La démarche a démarré par une <strong>analyse fonctionnelle</strong> complète (bête à cornes,
+      diagramme des interacteurs, CDCF, diagramme FAST), puis l'exploration de
+      <strong>trois schémas cinématiques</strong>&nbsp;: basculeur motorisé, pince type
+      «&nbsp;Schrader inversée&nbsp;» et solution à vérin.
+    </p>
+    <p>
+      La solution retenue utilise un <strong>moteur standard de 5,6&nbsp;N·m</strong> qui transmet
+      son couple aux bras via un basculeur — pas de vérin, donc pas de circuit pneumatique. Le
+      dimensionnement (poids de la brique, coefficient de frottement plastique-béton de 0,8) a
+      fixé la longueur des bras du basculeur à 20&nbsp;mm. La structure est presque entièrement
+      composée d'<strong>éléments standards</strong>&nbsp;: profilés Bosch, liaisons pivot et
+      rotules du commerce, pattes de contact en tôle pliée, basculeur usinable sur fraiseuse CN
+      3 axes classique.
+    </p>
+
+    <div class="gallery">
+      <figure>
+        <img src="../assets/img/prehenseur-cao.png" alt="Vue CAO d'ensemble du préhenseur de briques" loading="lazy">
+        <figcaption>Le préhenseur modélisé sous 3DEXPERIENCE.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/prehenseur-fast.png" alt="Cahier des charges fonctionnel et diagramme FAST du préhenseur" loading="lazy">
+        <figcaption>CDCF et diagramme FAST&nbsp;: la recherche structurée de solutions.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/prehenseur-calculs.png" alt="Schéma cinématique de la solution retenue et calculs de dimensionnement" loading="lazy">
+        <figcaption>Justification de la solution retenue&nbsp;: statique et dimensionnement des bras.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/prehenseur-modelisation.png" alt="Modélisation 3DEXPERIENCE du préhenseur, vue de face" loading="lazy">
+        <figcaption>Aperçu de la modélisation 3DEXPERIENCE.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Simulation de la cellule robotisée</h2>
+    <p>
+      La cellule a été simulée sous <strong>RobotStudio</strong> avec un robot
+      <strong>ABB IRB4600</strong> (40&nbsp;kg de charge, 2,55&nbsp;m d'envergure), choisi après
+      une première itération&nbsp;: le modèle 60&nbsp;kg initialement retenu manquait d'envergure
+      pour atteindre toutes les positions. La logique de station gère la prise et dépose de chaque
+      brique (24 briques par mur), avec des trajectoires en étoile pour optimiser le
+      <strong>temps de cycle, mesuré à 3&nbsp;min&nbsp;10&nbsp;s</strong>. L'analyse des collisions
+      a montré qu'un point de passage au-dessus de chaque colonne de briques améliorerait encore la
+      fiabilité.
+    </p>
+
+    <div class="gallery">
+      <figure>
+        <img src="../assets/img/robot-cellule.png" alt="Robot ABB IRB4600 déchargeant des briques d'une palette dans RobotStudio" loading="lazy">
+        <figcaption>La cellule robotisée simulée dans RobotStudio.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/robot-integration.png" alt="Vue de dessus de l'implantation du robot avec les trajectoires en étoile" loading="lazy">
+        <figcaption>Implantation du robot et trajectoires en étoile entre palette et mur.</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/robot-analyse.png" alt="Analyse du temps de cycle et estimation du coût du préhenseur" loading="lazy">
+        <figcaption>Analyse des performances et estimation du coût du préhenseur (≈&nbsp;755&nbsp;€).</figcaption>
+      </figure>
+    </div>
+
+    <h2>Analyse technico-économique</h2>
+    <p>
+      Le préhenseur revient à environ <strong>755&nbsp;€</strong> grâce aux éléments standards. En
+      ajoutant un robot reconditionné (≈&nbsp;40&nbsp;k€), l'intégration et la programmation, l'investissement
+      total avoisine <strong>100&nbsp;k€</strong>, soit une rentabilité théorique en 3 ans face à un
+      opérateur. Ma conclusion nuance cependant ce chiffre&nbsp;: les coûts d'installation et de
+      déplacement entre chantiers rendent la solution pertinente surtout pour des chantiers
+      volumineux — un regard critique sur la robotisation, au-delà du calcul brut.
+    </p>
+
+    <h2>Ce que ce projet m'a apporté</h2>
+    <ul>
+      <li>Dérouler une démarche complète d'ingénierie&nbsp;: du besoin client au chiffrage, en passant par la cinématique.</li>
+      <li>Concevoir avec les contraintes de coût et de fabrication (éléments standards, procédés simples).</li>
+      <li>Programmer et analyser une cellule robotisée (trajectoires, collisions, temps de cycle).</li>
+      <li>Évaluer la pertinence économique d'un investissement industriel.</li>
+    </ul>
+
+    <nav class="project-nav">
+      <a href="basculeur-f1.html">← Basculeur de F1</a>
+      <a href="winch.html">Winch de voilier →</a>
+    </nav>
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© 2026 Paul Amouriaux — Portfolio</span>
+    <span>BUT Génie Mécanique et Productique · IUT de Nantes</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
